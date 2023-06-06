@@ -57,7 +57,11 @@ iterateDictionary(students)
 # Create a function iterateDictionary2(key_name, some_list) that, given a list of dictionaries and a key name, the function prints the value stored in that key for each dictionary.
 def iterateDictionary2(key_name, some_list):
     for person in some_list:
-        print(person[key_name])
+        # talking to Ben, he unintentionally added this conditional to check if key_name was available. I liked that, so I'm adding it in.
+        if key_name in person:
+            print(person[key_name]) # my original solution only had this print, not the surrounding if-statement
+        else:
+            print('cannot find ' + key_name)
 iterateDictionary2('first_name', students)
 iterateDictionary2('last_name', students)
 # For example, iterateDictionary2('first_name', students) should output:
@@ -70,6 +74,9 @@ iterateDictionary2('last_name', students)
 # Rosales
 # Guillen
 # Tonel
+
+# edgecase testing
+# iterateDictionary2('middle_name', students)
 
 # 4. Iterate Through a Dictionary with List Values
 # Create a function printInfo(some_dict) that given a dictionary whose values are all lists, prints the name of each key along with the size of its list, and then prints the associated values within each key's list. For example:
